@@ -29,3 +29,22 @@ Here we go! But what's happening?
 ![nginx-80](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/cf2d5c47-5d33-4fd7-8011-63fd40437058.png)
 
 The `--network host` option in Docker, the services inside the container are directly exposed on the host's network, and there is no separate port mapping. And now we wont be able to run mutliple containers on the same host, on the same port.
+---
+
+## `None Network`
+
+A container with the `--network none` option in Docker, it means that the container is isolated from the host network, and it doesn't have any network interfaces. Tt also means that the container won't be able to communicate with the external network or other containers.
+
+```bash
+docker run -d --network none --name isolated-container nginx
+```
+
+The only way to interact with it is by accessing its filesystem or running commands inside the container.
+
+```bash
+docker exec -it isolated-container /bin/bash
+```
+
+![none-nginx](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/37a5cdd6-9496-4ec7-a23b-9e8803f58eb0.png)
+
+---
