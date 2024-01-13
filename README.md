@@ -28,8 +28,9 @@ Here we go! But what's happening?
 
 ![nginx-80](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/cf2d5c47-5d33-4fd7-8011-63fd40437058.png)
 
+
 The `--network host` option in Docker, the services inside the container are directly exposed on the host's network, and there is no separate port mapping. And now we wont be able to run mutliple containers on the same host, on the same port.
----
+
 
 ## `None Network`
 
@@ -46,5 +47,3 @@ docker exec -it isolated-container /bin/bash
 ```
 
 ![none-nginx](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/37a5cdd6-9496-4ec7-a23b-9e8803f58eb0.png)
-
----
