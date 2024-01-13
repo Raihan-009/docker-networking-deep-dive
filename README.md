@@ -47,3 +47,10 @@ docker exec -it isolated-container /bin/bash
 ```
 
 ![none-nginx](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/65511d7a-6665-4011-b37c-4c832a5c1692.png)
+
+
+## `Bridge Network`
+
+The bridge network is the default networking mode in Docker, serving as a `private internal network` for container communication. Containers on the bridge network are `isolated` from the host machine and each other, with each container assigned its own internal IP address. `Network Address Translation (NAT)` enables containers to access the external network via the host machine. Port mapping allows for exposing container ports to the host or external network. Containers on the same bridge network can communicate using their internal IP addresses.
+
+![docker-bridge](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/59ab4149-25f0-4872-8a7d-1a746a9ea1f2.png)
