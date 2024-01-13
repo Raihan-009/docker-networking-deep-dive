@@ -46,4 +46,4 @@ The only way to interact with it is by accessing its filesystem or running comma
 docker exec -it isolated-container /bin/bash
 ```
 
-![none-nginx](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/37a5cdd6-9496-4ec7-a23b-9e8803f58eb0.png)
+![none-nginx](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/65511d7a-6665-4011-b37c-4c832a5c1692.png)
