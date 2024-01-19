@@ -53,8 +53,31 @@ docker exec -it isolated-container /bin/bash
 
 The bridge network is the default networking mode in Docker, serving as a `private internal network` for container communication. Containers on the bridge network are `isolated` from the host machine and each other, with each container assigned its own internal IP address. `Network Address Translation (NAT)` enables containers to access the external network via the host machine. Port mapping allows for exposing container ports to the host or external network. Containers on the same bridge network can communicate using their internal IP addresses.
 
+
 ![docker-bridge](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/59ab4149-25f0-4872-8a7d-1a746a9ea1f2.png)
 
-## `Port Mapping`
+To create a custom bridge network inside docker
+
+```bash
+docker network create v-net
+```
+
+And then, to run containers with the `--network` option to connect them to this custom network
+
+```bash
+docker run --network=mynetwork v-net
+```
+To expose a container's port to the host machine or to the outside world, we need to get help of port forwarding.
+
+## `Port Forwarding`
+
+It exposes a container's port to the host or external network, making services accessible.
+
+```bash
+docker run -d --name nginx-container -p 4000:80 nginx
+```
+- `-d`: Runs the container in detached mode.
+- `--name nginx-container`: Assigns a name to the container.
+- `-p 8080:80`: Maps port 4000 on the host to port 80 on the container.
 
 ![port-forwarding](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/ebcd47e9-bbb6-4751-83e8-d8a58c6e9691.png)
