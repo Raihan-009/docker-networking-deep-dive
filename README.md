@@ -78,6 +78,6 @@ docker run -d --name nginx-container -p 4000:80 nginx
 ```
 - `-d`: Runs the container in detached mode.
 - `--name nginx-container`: Assigns a name to the container.
-- `-p 8080:80`: Maps port 4000 on the host to port 80 on the container.
+- `-p 4000:80`: Maps port 4000 on the host to port 80 on the container.
 
 ![port-forwarding](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/ebcd47e9-bbb6-4751-83e8-d8a58c6e9691.png)
