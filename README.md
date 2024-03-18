@@ -22,11 +22,11 @@ docker run -d --network host --name nginx-container nginx
 
 Since Nginx is running on the host's network, we can access it using the host machine's IP address or localhost at the default Nginx port, usually 80. In my case I am using virtual machine, so I will try with public IP address of my VM.
 
-![nginx](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/83937f2e-425f-4166-b062-71dcf9ae260c.png)
+![nginx](https://github.com/Raihan-009/docker-networking-deep-dive/blob/main/diagrams/nginx-container.png?raw=true)
 
 Here we go! But what's happening?
 
-![nginx-80](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/cf2d5c47-5d33-4fd7-8011-63fd40437058.png)
+![nginx-80](https://github.com/Raihan-009/docker-networking-deep-dive/blob/main/diagrams/nginx-80.png?raw=true)
 
 
 The `--network host` option in Docker, the services inside the container are directly exposed on the host's network, and there is no separate port mapping. And now we wont be able to run mutliple containers on the same host, on the same port.
@@ -46,7 +46,7 @@ The only way to interact with it is by accessing its filesystem or running comma
 docker exec -it isolated-container /bin/bash
 ```
 
-![none-nginx](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/65511d7a-6665-4011-b37c-4c832a5c1692.png)
+![none-nginx](https://github.com/Raihan-009/docker-networking-deep-dive/blob/main/diagrams/isolated-container.png?raw=true)
 
 
 ## `Bridge Network`
@@ -54,7 +54,7 @@ docker exec -it isolated-container /bin/bash
 The bridge network is the default networking mode in Docker, serving as a `private internal network` for container communication. Containers on the bridge network are `isolated` from the host machine and each other, with each container assigned its own internal IP address. `Network Address Translation (NAT)` enables containers to access the external network via the host machine. Port mapping allows for exposing container ports to the host or external network. Containers on the same bridge network can communicate using their internal IP addresses.
 
 
-![docker-bridge](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/59ab4149-25f0-4872-8a7d-1a746a9ea1f2.png)
+![docker-bridge](https://github.com/Raihan-009/docker-networking-deep-dive/blob/main/diagrams/docker-bridge.png?raw=true)
 
 To create a custom bridge network inside docker
 
@@ -80,4 +80,4 @@ docker run -d --name nginx-container -p 4000:80 nginx
 - `--name nginx-container`: Assigns a name to the container.
 - `-p 4000:80`: Maps port 4000 on the host to port 80 on the container.
 
-![port-forwarding](https://lab-bucket.s3.brilliant.com.bd/labthumbnail/ebcd47e9-bbb6-4751-83e8-d8a58c6e9691.png)
+![port-forwarding](https://github.com/Raihan-009/docker-networking-deep-dive/blob/main/diagrams/port-forwarding.png?raw=true)
